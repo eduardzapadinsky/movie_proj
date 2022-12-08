@@ -1,0 +1,25 @@
+{% extends 'movie_app/base.html' %}
+
+{% block title %} Всі фільми {% endblock %}
+
+{% block content %}
+    <h2>Список усіх фільмів</h2>
+    <ul>
+        {% for movie in movies%}
+        <li><a href="{{ movie.get_url }}">{{ movie.name }}</a>,
+            рейтинг - {{ movie.rating }},
+            бюджет - {{ movie.budget }},
+            рік - {{ movie.year|default:'Неизвестен' }},
+            анотація - {{ movie.new_budget }}
+
+        </li>
+        {% endfor %}
+        <h2>Середній бюджет - {{ agg.budget__avg }}</h2>
+        <h2>Мінімальний рейтинг - {{ agg.rating__min }}</h2>
+        <h2>Максимальний рейтинг - {{ agg.rating__max }}</h2>
+        <h2>Всього фільмів - {{ total }}</h2>
+
+
+
+    </ul>
+{% endblock %}

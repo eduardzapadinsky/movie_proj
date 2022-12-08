@@ -1,0 +1,22 @@
+{% extends 'movie_app/base.html'%}
+
+{% block title %} Інформація про фільм - {{ movie.name }}{% endblock %}
+
+{% block content %}
+<h2> Назва - {{ movie.name }} </h2>
+<h3> Рейтинг {{ movie.rating }} </h3>
+<h3> Бюджет {{ movie.budget }} </h3>
+<h3> Рік виходу {{ movie.year }} </h3>
+<hr>
+<h3> Інформація про режисера </h3>
+<h3> Ім'я {{ movie.director.first_name }} </h3>
+<h3> Прізвище {{ movie.director.last_name }} </h3>
+<h3> Пошта {{ movie.director.director_email }} </h3>
+<hr>
+<h3> Інформація про акторів </h3>
+<ul>
+    {% for actor in movie.actors.all %}
+    <li>{{ actor }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
